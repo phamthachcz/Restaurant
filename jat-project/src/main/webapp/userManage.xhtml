@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<ui:composition template="template.xhtml">
+	<ui:define name="title">Home</ui:define>
+	<ui:define name="content">
+		
+		<h:panelGroup rendered="#{accountController.adminLogin}">
+		<div class="userManage">
+		
+			<h:dataTable styleClass="table" value="#{accountController.allAccounts}" var="p">
+				<h:column>
+					<f:facet name="header">ID</f:facet>
+					<h:outputText value="#{p.id}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Username</f:facet>
+					<h:outputText value="#{p.username}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Password</f:facet>
+					<h:outputText value="#{p.password}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Email</f:facet>
+					<h:outputText value="#{p.email}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Phone</f:facet>
+					<h:outputText value="#{p.phone}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Role</f:facet>
+					<h:selectOneMenu value="#{p.role}" disabled="true">
+						<f:selectItem itemLabel="Admin" itemValue="#{0}" noSelectionOption="true"/>
+						<f:selectItem itemLabel="User" itemValue="#{1}" />
+					</h:selectOneMenu>
+				</h:column>
+				<h:column>
+					<h:form>
+						<h:commandButton styleClass="btn btn-success" action="#{accountController.editAccount(p)}" value="Edit" />
+					</h:form>
+				</h:column>
+				
+				<h:column>
+					<h:form>
+						<h:commandButton styleClass="btn btn-info" action="#{accountController.removeAccount(p)}" value="Remove" />
+					</h:form>
+				</h:column>
+			</h:dataTable>
+			<h:form>
+				<h:commandButton action="#{accountController.register()}" value="New person" />
+			</h:form>
+		
+		</div>
+		</h:panelGroup>
+		
+		
+		
+	
+	</ui:define>
+
+
+</ui:composition>
+</html>

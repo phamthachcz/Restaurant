@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<ui:composition template="template.xhtml">
+	<ui:define name="title">Home</ui:define>
+	<ui:define name="content">
+		
+		<h:panelGroup rendered="#{accountController.adminLogin}">
+		<div class="contactManage">
+		
+			<h:dataTable styleClass="table" value="#{contactController.allContacts}" var="p">
+				<h:column>
+					<f:facet name="header">ID</f:facet>
+					<h:outputText value="#{p.id}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">First Name</f:facet>
+					<h:outputText value="#{p.fname}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Last Name</f:facet>
+					<h:outputText value="#{p.lname}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Email</f:facet>
+					<h:outputText value="#{p.email}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Detail</f:facet>
+					<h:outputText value="#{p.detail}" />
+				</h:column>
+				
+			</h:dataTable>
+			
+		</div>
+		</h:panelGroup>
+		
+		
+		
+	
+	</ui:define>
+
+
+</ui:composition>
+</html>

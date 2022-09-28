@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<ui:composition template="template.xhtml">
+	<ui:define name="title">Home</ui:define>
+	<ui:define name="content">
+		<h:panelGroup rendered="#{accountController.adminLogin}">
+			<div class="adminPage">
+				<ul>
+					<li>
+						<h:form>
+							<h:commandButton action="#{accountController.accountManage()}" value="Accounts Management" />
+						</h:form>
+					</li>
+					<li>
+						<h:form>
+							<h:commandButton action="#{foodCategoryController.foodCategoryManage()}" value="Food Categories Management" />
+						</h:form>
+					</li>
+					
+					<li>
+						<h:form>
+							<h:commandButton action="#{foodController.foodManage()}" value="Foods Management" />
+						</h:form>
+					</li>
+					
+					<li>
+						<h:form>
+							<h:commandButton action="#{contactController.contactsManage()}" value="Contact Management" />
+						</h:form>
+					</li>
+					
+				</ul>
+			
+			
+			</div>
+		
+		</h:panelGroup>
+		
+		
+	
+	</ui:define>
+
+
+</ui:composition>
+</html>

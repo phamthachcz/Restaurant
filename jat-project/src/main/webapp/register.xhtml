@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	
+
+</h:head> 
+<ui:composition template="template.xhtml">
+	<ui:define name="title">Register</ui:define>
+	<ui:define name="content">
+		
+		
+		<h:messages showDetail="true"/>
+			<div class="loginCenter">
+				<h1>Sign up</h1>
+				<h:form>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Username</label><br />
+						<h:inputText styleClass="form-control" id="username" label="Username" value="#{accountController.editedAccount.username}" /> <br />
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Password</label><br/>
+						<h:inputSecret styleClass="form-control" id="password" label="Password" value="#{accountController.editedAccount.password}" /><br/>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Email</label><br />
+						<h:inputText styleClass="form-control" id="email" label="Email" value="#{accountController.editedAccount.email}" /> <br />
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Phone</label><br />
+						<h:inputText styleClass="form-control" id="phone" label="Phone" value="#{accountController.editedAccount.phone}" /> <br />
+					</div>
+					
+					
+					
+					<br/>
+					<h:commandButton styleClass="btn btn-danger" action="#{accountController.save()}" 
+						value="Sign up" />
+				</h:form>
+			</div>
+	<h:messages /> 
+	
+	</ui:define>
+
+
+</ui:composition>
+</html>

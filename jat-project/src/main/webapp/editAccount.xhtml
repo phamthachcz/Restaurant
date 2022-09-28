@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<ui:composition template="template.xhtml">
+	<ui:define name="title">Home</ui:define>
+	<ui:define name="content">
+		<h:panelGroup rendered="#{accountController.adminLogin}">
+		<h:form>
+			<label>Username: </label>
+			<h:inputText id="name" label="Username" 
+			value="#{accountController.editedAccount.username}">
+				
+			</h:inputText><br/>
+			<label>Password: </label>
+			<h:inputText id="password" label="Password" 
+			value="#{accountController.editedAccount.password}">
+				
+			</h:inputText><br/>
+			<label>Email: </label>
+			<h:inputText id="email" label="Email" 
+			value="#{accountController.editedAccount.email}">
+				
+			</h:inputText><br/>
+			<label>Phone: </label>
+			<h:inputText id="phone" label="Phone" 
+			value="#{accountController.editedAccount.phone}">
+				
+			</h:inputText><br/>
+			<label>Role: </label>
+			<h:selectOneMenu value="#{accountController.editedAccount.role}">
+						<f:selectItem itemLabel="Admin" itemValue="#{0}" noSelectionOption="true"  />
+						<f:selectItem itemLabel="User" itemValue="#{1}" />
+			</h:selectOneMenu>
+				
+			<br/>
+			
+			
+		
+			<h:commandButton styleClass="btn btn-danger" action="#{accountController.saveAccount()}" 
+			value="Save" />
+		</h:form>
+		
+		</h:panelGroup>
+		
+		
+	</ui:define>
+
+
+</ui:composition>
+</html>

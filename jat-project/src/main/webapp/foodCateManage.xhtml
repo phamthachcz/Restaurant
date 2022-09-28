@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<ui:composition template="template.xhtml">
+	<ui:define name="title">Home</ui:define>
+	<ui:define name="content">
+		
+		<h:panelGroup rendered="#{accountController.adminLogin}">
+		<div class="foodCateManage">
+		
+			<h:dataTable styleClass="table" value="#{foodCategoryController.allFoodCategories}" var="p">
+				<h:column>
+					<f:facet name="header">ID</f:facet>
+					<h:outputText value="#{p.id}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Name</f:facet>
+					<h:outputText value="#{p.name}" />
+				</h:column>
+				<h:column>
+					<h:form>
+						<h:commandButton styleClass="btn btn-success" action="#{foodCategoryController.editFoodCategory(p)}" value="Edit" />
+					</h:form>
+				</h:column>
+				
+				<h:column>
+					<h:form>
+						<h:commandButton styleClass="btn btn-info" action="#{foodCategoryController.removeFoodCategory(p)}" value="Remove" />
+					</h:form>
+				</h:column>
+			</h:dataTable>
+			<h:form>
+				<h:commandButton action="#{foodCategoryController.newFoodCate()}" value="New Food Category" />
+			</h:form>
+		
+		</div>
+		
+		</h:panelGroup>
+		
+		
+	
+	</ui:define>
+
+
+</ui:composition>
+</html>

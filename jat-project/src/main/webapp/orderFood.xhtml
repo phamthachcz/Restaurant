@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<ui:composition template="template.xhtml">
+	<ui:define name="title">Home</ui:define>
+	<ui:define name="content">
+		<h:panelGroup rendered="#{accountController.usersLogin}">
+		<h:dataTable value="#{foodController.allFoods}" var="f">
+			<h:column>
+				<div class="card" style="width: 18rem;">
+					<div class="card-body">
+						<h5 class="card-title">Name: <h:outputText styleClass="card-title" value="#{f.name}" /></h5>
+						
+						<p class="card-text">Price: <h:outputText styleClass="card-text" value="#{f.price}" /></p>
+						
+						<p class="card-text">Quantity: <h:inputText styleClass="card-text" value="0" /></p>
+					</div>
+				
+				</div>	
+			</h:column>
+		
+		
+		
+		</h:dataTable>
+		
+		</h:panelGroup>
+		
+		
+	</ui:define>
+
+
+</ui:composition>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<ui:composition template="template.xhtml">
+	<ui:define name="title">Home</ui:define>
+	<ui:define name="content">
+		
+		<h:panelGroup rendered="#{accountController.adminLogin}">
+		<h:form>
+			<label>Name: </label>
+			<h:inputText id="name" label="Name" 
+			value="#{foodCategoryController.editeFoodCategory.name}">
+			</h:inputText><br/>
+			<h:commandButton styleClass="btn btn-danger" action="#{foodCategoryController.save()}" 
+			value="Save" />
+		</h:form>
+		
+		</h:panelGroup>
+		
+		
+	</ui:define>
+
+
+</ui:composition>
+</html>
